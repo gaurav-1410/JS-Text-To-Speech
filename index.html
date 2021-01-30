@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(rgb(94, 118, 155), rgb(19, 184, 19));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h2 {
+            font-family: sans-serif;
+            font-style: bold;
+            margin-top: 50px;;
+        }
+
+        button {
+            margin-top: 10px;
+            color: rgb(25, 32, 128);
+            background-color: rgb(21, 180, 100);
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <h2>Text to Speech Conversion</h2>
+            <div>
+                <input type="text" id="txt-to-speech" placeholder="Please enter your text" />
+                <br>
+                <button type="button" onclick="textToSpeech()">Click to Speak</button>
+            </div>
+        </div>
+    </center>
+    <script>
+        /* JS */
+        function textToSpeech() {
+            let msg = document.getElementById("txt-to-speech").value;
+
+            let speech = new SpeechSynthesisUtterance();
+            speech.lang = "en-US";
+
+            speech.text = msg;
+            speech.volume = 1;
+            speech.rate = 1;
+            speech.pitch = 1;
+
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+
+</html>
